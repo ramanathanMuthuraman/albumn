@@ -1,0 +1,35 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#book {
+	background: #000;
+	position: absolute;
+	width: 830px;
+	height: 260px;
+	top : 100px;
+	left : 100px;
+}
+#pages {
+
+}
+#pages section {
+	background: #ccc;
+	display: block;
+	width: 400px;
+	height: 250px;
+	position: absolute;
+	margin-left: 50%;
+	overflow: hidden;
+	top: 5px;
+}
+#flip-canvas {
+	position: absolute;
+	z-index: 100;
+	overflow: visible;
+
+}
+.content{
+	width: 400px;
+    height: 250px;
+}
