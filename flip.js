@@ -48,13 +48,13 @@ function rendernext() {
 			context.quadraticCurveTo(foldX, PAGE_HEIGHT + (verticalOutdent * 2), (foldX - foldWidth +15), PAGE_HEIGHT + verticalOutdent);
 			context.lineTo(foldX - foldWidth+15, -verticalOutdent);
 			context.quadraticCurveTo(foldX, -verticalOutdent * 2, foldX, 0);
-			context.fillStyle = "#c00";
+			context.fillStyle = "#ccc";
 			context.fill();
 			context.stroke();
 			flips[0].page.style.width = foldX*0.5 - foldWidth + "px";
 			foldX--;
 			foldWidth++;
-		},1)
+		},5)
 
 
 
@@ -77,13 +77,12 @@ function renderprev() {
 			context.quadraticCurveTo(foldWidth+foldWidth , PAGE_HEIGHT + 30, PAGE_WIDTH+foldWidth+30,  PAGE_HEIGHT);
 			context.lineTo(PAGE_WIDTH+foldWidth+30, 0);
 			context.quadraticCurveTo(PAGE_WIDTH+foldWidth , 0 , foldWidth+30, 0);
-			context.fillStyle = "#cc0";
 			context.fill();
 			context.stroke();
 			flips[0].page.style.width = foldWidth  + "px";
 			foldX--;
 			foldWidth++;
-		},1)
+		},5)
 
 
 
