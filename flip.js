@@ -30,8 +30,8 @@ for( var i = 0, len = pages.length; i < len; i++ ) {
     dragging: false
   });
 }
-var i=1;
-function render() {
+
+function rendernext() {
 
 
 		var foldX = BOOK_WIDTH, foldWidth =15, verticalOutdent = foldWidth*0.1;
@@ -40,6 +40,7 @@ function render() {
 			context.clearRect( -CANVAS_PADDING, -CANVAS_PADDING, canvas.width, canvas.height );
 			if(foldX-15<(BOOK_WIDTH/2)){
 				clearInterval(timer);
+				renderprev();
 			}
 			context.beginPath();
 			context.moveTo(foldX, 0);
@@ -50,7 +51,7 @@ function render() {
 			context.fillStyle = "#c00";
 			context.fill();
 			context.stroke();
-			flips[0].page.style.width = PAGE_WIDTH-- + "px";
+			flips[0].page.style.width = foldX*0.5 - foldWidth + "px";
 			foldX--;
 			foldWidth++;
 		},1)
@@ -59,4 +60,32 @@ function render() {
 
 }
 
-render();
+function renderprev() {
+
+
+		var foldX = BOOK_WIDTH, foldWidth =15, verticalOutdent = foldWidth*0.1;
+		//context.translate( CANVAS_PADDING-15, CANVAS_PADDING+5 );
+		var timer = setInterval(function(){
+			context.clearRect( -CANVAS_PADDING, -CANVAS_PADDING, canvas.width, canvas.height );
+			if(foldX-30<(BOOK_WIDTH/2)){
+				clearInterval(timer);
+
+			}
+			context.beginPath();
+			context.moveTo(foldWidth+foldWidth, 0);
+			context.lineTo(foldWidth+foldWidth, PAGE_HEIGHT);
+			context.quadraticCurveTo(foldWidth+foldWidth , PAGE_HEIGHT + 30, PAGE_WIDTH+foldWidth+30,  PAGE_HEIGHT);
+			context.lineTo(PAGE_WIDTH+foldWidth+30, 0);
+			context.quadraticCurveTo(PAGE_WIDTH+foldWidth , 0 , foldWidth+30, 0);
+			context.fillStyle = "#cc0";
+			context.fill();
+			context.stroke();
+			flips[0].page.style.width = foldWidth  + "px";
+			foldX--;
+			foldWidth++;
+		},1)
+
+
+
+}
+rendernext();
